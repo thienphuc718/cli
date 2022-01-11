@@ -1,0 +1,173 @@
+@include size('large') {
+  html {
+    font-size: calc(3.5745vw*1.111694182389937/61);
+  }
+}
+@include size('medium') {
+  html {
+    font-size: calc(0.1302081012767909vw);
+  }
+}
+@include size('small') {
+  html {
+    font-size: calc(0.2442875528vw*1.09);
+  }
+}
+
+body {
+  font-family: "Open Sans";
+  font-size: 16rem;
+  color: $black;
+}
+
+.heading-box {
+  @include size('small') {
+    width: 100%!important;
+    min-width: 100%!important;
+  }
+
+  h1 {
+    font-size: 61rem;
+    font-weight: 400;
+    line-height: 1.1em;
+    letter-spacing: -1rem;
+    margin-bottom: 46rem;
+    @include size('small') {
+      font-size: 52rem;
+    }
+  }
+
+  .heading-1 h2 {
+    font-size: 48rem;
+    font-weight: 500;
+    line-height: 1.2em;
+    letter-spacing: -1rem;
+    @include size('small') {
+      font-size: 42rem;
+    }
+  }
+
+  .heading-2 h2 {
+    font-size: 39rem;
+    font-weight: 500;
+    line-height: 1.4em;
+    letter-spacing: -0.5rem;
+    @include size('small') {
+      font-size: 34rem;
+    }
+  }
+
+  h3 {
+    font-size: 31.25rem;
+    font-weight: 400;
+    line-height: 1.4em;
+    letter-spacing: -1rem;
+    @include size('small') {
+      font-size: 27.5rem;
+    }
+  }
+
+  h4 {
+    font-size: 25rem;
+    font-weight: 500;
+    line-height: 1.4em;
+    letter-spacing: -0.2rem;
+    @include size('small') {
+      font-size: 22rem;
+    }
+  }
+}
+
+.cta {
+  font-family: "Vollkorn";
+  font-size: 20rem;
+  font-weight: 600;
+}
+
+.content-box {
+  @include size('small') {
+    width: 100%!important;
+  }
+
+  :is(p, li) {
+    font-family: "Open sans";
+    font-size: 16rem;
+    line-height: 1.8em;
+    letter-spacing: 0.1rem;
+
+    &.small {
+      font-size: 12rem;
+      font-weight: 600;
+    }
+
+    &.large {
+      font-size: 20rem;
+    }
+
+    &.thick {
+      font-weight: 600;
+    }
+  }
+}
+
+section.dark {
+  .heading-box {
+    :is(h1, h2, h3, h4, a) {
+      font-family: "Vollkorn";
+      color: $white;
+    }
+  }
+
+  .content-box p,li {
+    color: $grayLight;
+  }
+
+  .cta {
+    color: $primaryYellow;
+    border-color: $primaryYellow;
+
+    path {
+      stroke: $primaryYellow;
+    }
+  }
+}
+
+section.light {
+  .heading-box {
+    :is(h1, h2, h3, h4, a) {
+      font-family: "Vollkorn";
+      color: $primaryGreen;
+    }
+  }
+
+  .content-box p,li {
+    color: $grayDarkest;
+  }
+
+  .cta {
+    color: $black;
+    border-color: $black;
+    cursor: pointer;
+
+    path,
+    rect {
+      stroke: $black;
+    }
+
+    &:hover {
+      color: $secondaryYellow;
+      border-color: $secondaryYellow;
+
+      path,
+      rect {
+        stroke: $secondaryYellow;
+      }
+    }
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(318.62deg, rgba(223, 191, 78, 0.98) 8.98%, #FFEABA 91.61%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

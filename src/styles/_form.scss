@@ -1,0 +1,161 @@
+.form {
+  width: 100%;
+  display: flex;
+  gap: 24rem;
+  flex-direction: column;
+
+  .row {
+    position: relative;
+    display: flex;
+    gap: 24rem;
+
+    div {
+      flex: 1;
+
+      label {
+        margin-bottom: 6rem;
+        display: block;
+        font-size: 13rem;
+        line-height: 1.8em;
+        font-weight: inherit;
+        color: $black;
+        font-weight: 600;
+
+        &[for*="Ngày"] {
+          margin-right: -100%;
+        }
+
+        &[for*="Tháng"] {
+          margin-right: -100%;
+        }
+
+        &[for*="Năm"] {
+          margin-right: -100%;
+        }
+      }
+
+      input[type="email"],
+      input[type="number"],
+      input[type="password"],
+      input[type="tel"],
+      input[type="url"] {
+        height: 42rem;
+      }
+
+      textarea {
+        padding-top: 10rem;
+      }
+
+      input[type="email"],
+      input[type="number"],
+      input[type="password"],
+      input[type="tel"],
+      input[type="url"],
+      textarea {
+        padding-left: 10rem;
+        font-size: 15rem;
+        color: $black;
+        border: solid 1rem $grayLighter;
+        border-radius: 4rem;
+        width: 100%;
+        font-weight: 400;
+        font-family: "Open Sans";
+        font-size: 15rem;
+
+        &::placeholder {
+          color: $grayLight;
+          opacity: 1;
+          font-weight: 400;
+          font-family: "Open Sans";
+          font-size: 15rem;
+        }
+
+        &:hover {
+          border-color: $primaryYellow;
+        }
+
+        &:focus,
+        &:focus-visible {
+          border-color: $primaryYellow;
+          outline: none;
+          box-shadow: 0 0 0 1rem $primaryYellow;
+
+          &::placeholder {
+            color: $grayBlack;
+          }
+        }
+
+        &.error {
+          border-color: $dangerText;
+        }
+
+        &.disable {
+          background-color: $grayLighter !important;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
+form {
+  label {
+    position: relative;
+
+    &.error {
+      &.required {
+        &:after {
+          content: 'Không được bỏ trống trường này';
+          color: $dangerText;
+          font-size: 14rem;
+          font-weight: 400;
+          position: absolute;
+          left: 0;
+          top: calc(100% + 4rem);
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.loading {
+  position: relative;
+  --height: 46.42rem;
+  --width: 173.61rem;
+
+  &:before {
+    content: "";
+    height: var(--height);
+    width: var(--width);
+    background: $grayLight;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+  }
+
+  &:after {
+    content: '';
+    height: 24rem;
+    width: 24rem;
+    border: 3px dashed black;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(var(--width)/2 - 12rem);
+    top: calc(var(--height)/2 - 12rem);
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    transform-origin: center;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

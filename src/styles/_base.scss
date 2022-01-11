@@ -1,0 +1,279 @@
+// main: ../main.scss
+
+.base-shadow {
+  box-shadow: 0 1px 3px rgba(63, 63, 68, 0.15), 0 0 4px rgba(63, 63, 68, 0.05);
+  border-radius: 4rem;
+}
+
+.soft-shadow {
+  box-shadow: 0 2px 16px rgba(33, 43, 54, 0.08);
+}
+
+.high-shadow {
+  box-shadow: 0 4px 8px rgba(37, 50, 77, 0.26);
+}
+
+.bg-dark {
+  background-color: $primaryGreen;
+}
+
+.bg-yellow {
+  background-color: $primaryYellow;
+}
+
+.dark {
+  background-color: $primaryGreen;
+  background-image: url("/bg-noise.jpg");
+
+  &.hero-section {
+    position: relative;
+    padding-top: 140rem;
+
+    &:after {
+      --size: 1626.38px;
+      content: '';
+      width: var(--size);
+      height: var(--size);
+      opacity: 0.15;
+      background: $primaryYellow;
+      filter: blur(800px);
+      border-radius: 50%;
+      position: absolute;
+      top: -90%;
+      right: -40%;
+      pointer-events: none;
+      z-index: 9999;
+      @include size(small) {
+        opacity: 0.5;
+        top: -60%;
+        right: -200%;
+        display: none;
+      }
+    }
+
+    &:before {
+      --size: 626.38px;
+      content: '';
+      width: var(--size);
+      height: var(--size);
+      opacity: 0.35;
+      background: $primaryYellow;
+      filter: blur(100px);
+      border-radius: 50%;
+      position: absolute;
+      top: -25%;
+      right: -25%;
+      pointer-events: none;
+      z-index: 9999;
+      @include size(small) {
+        opacity: 0.15;
+        top: -50%;
+        right: -200%;
+      }
+    }
+  }
+}
+
+.light {
+  background-color: $grayLightest;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  @include size(small) {
+    flex-direction: column;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.padding-all {
+  padding: 160rem 200rem 120rem;
+  @include size('small') {
+    padding: 160rem 32rem 80rem;
+  }
+  @include size('medium') {
+    padding: 160rem 32rem 80rem;
+  }
+}
+
+.dot {
+  --size: 14rem;
+  --left: 0;
+  --top: 50%;
+  position: relative;
+
+  &:after,
+  &:before {
+    content: "";
+    height: var(--size);
+    width: var(--size);
+    position: absolute;
+    border-radius: 50%;
+    left: var(--left);
+    top: var(--top);
+  }
+
+  &:before {
+    background-color: $primaryYellow;
+  }
+
+  &:after {
+    -webkit-animation-name: spread;
+    animation-name: spread;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border: solid 1px $primaryYellow;
+  }
+}
+@keyframes spread {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+  }
+
+  to {
+    -webkit-transform: scale(2.5);
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+//Slider Nav elements
+
+.light {
+  .nav-prev {
+    transform: rotate(180deg);
+    cursor: pointer;
+    display: flex!important;
+    align-items:flex-start;
+    justify-content: flex-end;
+
+    &:hover {
+      path {
+        stroke: $primaryGreen;
+      }
+    }
+
+    path {
+      stroke: $grayDarkest;
+    }
+  }
+
+  .nav-next {
+    cursor: pointer;
+
+    path {
+      stroke: $grayDarkest;
+    }
+
+    &:hover {
+      path {
+        stroke: $primaryGreen;
+      }
+    }
+  }
+}
+
+.dark {
+  .nav-prev {
+    transform: rotate(180deg);
+    cursor: pointer;
+    display: flex!important;
+    align-items:flex-start;
+    justify-content: flex-end;
+
+    &:hover {
+      path {
+        stroke: $primaryYellow;
+        opacity: 1;
+      }
+    }
+
+    path {
+      stroke: $grayLight;
+      opacity: 0.8;
+    }
+  }
+
+  .nav-next {
+    cursor: pointer;
+
+    &:hover {
+      path {
+        stroke: $primaryYellow;
+      }
+    }
+  }
+}
+
+.swiper-pagination {
+  top: 80%;
+  width: 100%;
+
+  .swiper-pagination-bullet {
+    background: $grayLight!important;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background: $grayDarker!important;
+      opacity: 1;
+    }
+  }
+}
+
+.hidden-mob {
+  @include size(small) {
+    display: none!important;
+  }
+}
+
+.hidden-tab {
+  @include size(medium) {
+    display: none!important;
+  }
+}
+
+.hidden-des {
+  @include size(large) {
+    display: none!important;
+  }
+}
+
+.header-light {
+  border-color: #45545310!important;
+
+  .header-logo {
+    path {
+      fill: $secondaryYellow;
+    }
+  }
+
+  a {
+    color: $grayBlack !important;
+
+    &:hover {
+      color: $secondaryYellow !important;
+    }
+  }
+
+  .header-hamburger {
+    rect {
+      fill: $grayBlack !important;
+    }
+  }
+}
